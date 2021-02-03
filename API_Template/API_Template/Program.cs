@@ -22,6 +22,7 @@ namespace API_Template
             Console.WriteLine(root.laureates[0].fullName.en);
             //Jag vill använda api:n  på ett sättså jag förstår hur de
             //funkar och vad koden över betyder.
+            Console.WriteLine(root.laureates[0].nobelPrizes[0].category.en);
         }
     }
 
