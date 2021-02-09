@@ -12,17 +12,23 @@ namespace API_Template
     {
         static void Main(string[] args)
         {
+            //av Elias Olofsson
             Console.WriteLine("Test");
             var client = new RestClient("https://api.nobelprize.org/2.0/laureates?_ga=2.36666979.2114374858.1612259065-1946553270.1612259065");
             var request = new RestRequest("/", Method.GET);
             IRestResponse response = client.Execute(request);
-            String content = response.Content;
-            Root root = JsonConvert.DeserializeObject<Root>(content);
+            string content = response.Content;
 
-            Console.WriteLine(root.laureates[0].fullName.en);
-            //Jag vill använda api:n  på ett sättså jag förstår hur de
-            //funkar och vad koden över betyder.
-            Console.WriteLine(root.laureates[0].nobelPrizes[0].category.en);
+            string ConsolepunktReadline = Console.ReadLine();
+            int intpunktParse = int.Parse(ConsolepunktReadline);
+            while (intpunktParse > -1)
+            {
+                Root root = JsonConvert.DeserializeObject<Root>(content);
+                Console.WriteLine(root.laureates[intpunktParse].fullName.en);
+                Console.WriteLine(root.laureates[intpunktParse].nobelPrizes[0].category.en);
+                string ConsolepunktReadlinetvå = Console.ReadLine();
+                intpunktParse = int.Parse(ConsolepunktReadlinetvå);
+            }
         }
     }
 
